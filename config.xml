@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "com.phonegap.getting.started"
-	version 	= "1.0.0">
+	id		= "edu.brandeis.cosi.jbs2012.spygame"
+	version 	= "0.0.1">
 
-	<name>PhoneGap: Getting Started</name>
+	<name>SpyGame</name>
 
 	<description>
-		A template for getting started with PhoneGap development and build.phonegap.com
+		A game so devious you don't even know that you're playing
 	</description>
 
-	<author href="http://alunny.github.com"
-		email="andrew.lunny@nitobi.com">
-		Andrew Lunny
+	<author href="https://github.com/emosenkis/SpyGameApp"
+		email="mosenkis@brandeis.edu">
+		The SpyGame Team
 	</author>
 
 	<icon src="icon.png" gap:role="default" />
