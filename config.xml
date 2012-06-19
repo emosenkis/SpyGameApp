@@ -23,5 +23,6 @@
 	<preference name="orientation" value="portrait" />
 
 	<access origin="http://code.jquery.com" />
+	<access origin="http://people.brandeis.edu" />
 	<access origin="https://herokuapp.com" subdomains="true" />
 </widget>
