@@ -7,6 +7,19 @@
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script src="phonegap.js"></script>
+	<script type="text/javascript">
+	<!--
+	$( document ).bind( "mobileinit", function() {
+		$.support.cors=true;
+		$.mobile.allowCrossDomainPages = true;
+	});
+	function load() {
+		$.get('https://gentle-frost-4472.herokuapp.com/', {}, function(data, textStatus, jqXHR) {
+			$('html').html(data);
+		}, 'html');
+	}
+	-->
+	</script>
 </head> 
 <body> 
 
@@ -17,7 +30,7 @@
 	</div>
 
 	<div data-role="content">	
-		<p>SpyGame is a really awesome game! <a href="https://gentle-frost-4472.herokuapp.com/" data-role="button" data-icon="star">Continue!</a></p>
+		<p>SpyGame is a really awesome game! <a id="link" href="javascript:void(0)" data-role="button" data-icon="star" onclick="load()">Continue!</a></p>
 	</div>
 
 </div>

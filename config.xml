@@ -21,4 +21,7 @@
 	<feature name="http://api.phonegap.com/1.0/network"/>
 
 	<preference name="orientation" value="portrait" />
+
+	<access origin="http://code.jquery.com" />
+	<access origin="https://herokuapp.com" subdomains="true" />
 </widget>
