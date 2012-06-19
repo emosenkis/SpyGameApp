@@ -9,14 +9,13 @@
 	<script src="phonegap.js"></script>
 	<script type="text/javascript">
 	<!--
-	function load() {
-		$.mobile.changePage('http://people.brandeis.edu/~mosenkis/sg/');
-	}
 	$( document ).bind( "mobileinit", function() {
 		$.support.cors=true;
 		$.mobile.allowCrossDomainPages = true;
-		load();
 	});
+	function load() {
+		$.mobile.changePage('http://people.brandeis.edu/~mosenkis/sg/index.html');
+	}
 	-->
 	</script>
 </head> 
