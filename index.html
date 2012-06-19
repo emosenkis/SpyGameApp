@@ -9,15 +9,14 @@
 	<script src="phonegap.js"></script>
 	<script type="text/javascript">
 	<!--
+	function load() {
+		$.mobile.changePage('http://people.brandeis.edu/~mosenkis/sg/');
+	}
 	$( document ).bind( "mobileinit", function() {
 		$.support.cors=true;
 		$.mobile.allowCrossDomainPages = true;
+		load();
 	});
-	function load() {
-		$.get('http://people.brandeis.edu/~mosenkis/sg/', {}, function(data, textStatus, jqXHR) {
-			$('html').html(data);
-		}, 'html');
-	}
 	-->
 	</script>
 </head> 
@@ -31,7 +30,6 @@
 
 	<div data-role="content">	
 		<p>SpyGame is a really awesome game! <a id="link" href="javascript:void(0)" data-role="button" data-icon="star" onclick="load()">Continue!</a></p>
-		<p>Or you can just <a href="http://people.brandeis.edu/~mosenkis/sg/">click here</a>.</p>
 	</div>
 
 </div>
