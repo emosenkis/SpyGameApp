@@ -25,4 +25,5 @@
 	<access origin="http://code.jquery.com" />
 	<access origin="http://people.brandeis.edu" />
 	<access origin="https://herokuapp.com" subdomains="true" />
+	<access origin="http://herokuapp.com" subdomains="true" />
 </widget>
