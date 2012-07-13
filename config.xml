@@ -2,7 +2,7 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "edu.brandeis.cosi.jbs2012.spygame"
-	version 	= "0.0.1">
+	version 	= "0.0.2">
 
 	<name>SpyGame</name>
 
@@ -22,8 +22,6 @@
 
 	<preference name="orientation" value="portrait" />
 
-	<access origin="http://code.jquery.com" />
-	<access origin="http://people.brandeis.edu" />
 	<access origin="https://herokuapp.com" subdomains="true" />
 	<access origin="http://herokuapp.com" subdomains="true" />
 </widget>
