@@ -11,7 +11,38 @@
 	<script src="js/mobile.js"></script>
 </head> 
 <body>
+	<!-- SIGN IN PAGE -->
+	<div data-role="page" id="signin">
 
+		<div data-role="header">
+			<h1>Sign In</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+			<form accept-charset="UTF-8" action="/sessions" method="post">
+				<div>
+					<input name="utf8" type="hidden" value="✓">
+					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k=">
+				</div>
+
+        		<div data-role="fieldcontain">
+           			<fieldset data-role="controlgroup">
+                		<label for="session_email">Email</label>
+    		  			<input id="session_email" name="session[email]" placeholder="Enter email">
+           
+                		<label for="session_password">Password</label>
+      					<input id="session_password" name="session[password]" placeholder="Enter password" type="password">
+            		</fieldset>
+            	</div>
+            	<div>	
+            		<input class="btn btn-large btn-primary ui-btn-hidden" name="commit" type="submit" value="Sign in" aria-disabled="false">
+            	</div>
+			</form>	
+			<p>New user? <a href="#signup">Sign up now!</a>
+		</div><!-- /content -->
+	</div><!-- page -->
+
+	<!-- BRIEFING PAGE -->
 	<div data-role="page" id="game-briefing">
 		<div data-role="header">
 			<h1>Mission Briefing</h1>
@@ -43,7 +74,8 @@
 			</div>
 		</div><!-- /footer -->
 	</div><!-- page -->
-	<!-- Start of first page -->
+
+	<!-- MAP PAGE -->
 	<div data-role="page" id="game-map">
 
 		<div data-role="header">
@@ -76,7 +108,7 @@
 		</div><!-- /footer -->
 	</div><!-- /page -->
 
-	<!--Start of signup page -->
+	<!-- SIGN UP PAGE -->
 	<div data-role="page" id="signup">
 
 		<div data-role="header">
@@ -111,38 +143,9 @@
 			</form>
 		</div><!-- /content -->
 
-		<!-- Start of signin page -->
-	<div data-role="page" id="signin">
+	
 
-		<div data-role="header">
-			<h1>Sign In</h1>
-		</div><!-- /header -->
-
-		<div data-role="content">	
-			<form accept-charset="UTF-8" action="/sessions" method="post">
-				<div>
-					<input name="utf8" type="hidden" value="✓">
-					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k=">
-				</div>
-
-        		<div data-role="fieldcontain">
-           			<fieldset data-role="controlgroup">
-                		<label for="session_email">Email</label>
-    		  			<input id="session_email" name="session[email]" placeholder="Enter email">
-           
-                		<label for="session_password">Password</label>
-      					<input id="session_password" name="session[password]" placeholder="Enter password" type="password">
-            		</fieldset>
-            	</div>
-            	<div>	
-            		<input class="btn btn-large btn-primary ui-btn-hidden" name="commit" type="submit" value="Sign in" aria-disabled="false">
-            	</div>
-			</form>	
-			<p>New user? <a href="#signup">Sign up now!</a>
-		</div><!-- /content -->
-	</div>
-
-	<!-- Start of first page -->
+	<!-- GAMES LIST PAGE -->
 	<div data-role="page" id="games">
 
 		<div data-role="header">
@@ -151,6 +154,8 @@
 
 		<div data-role="content">	
 			<ul id="games-list"></ul>	
+		</div><!-- /content -->
+		<div data-role="footer">
 			<div data-role="navbar" data-iconpos="top">
     			<ul>
         			<li>
@@ -165,11 +170,11 @@
         			</li>
     			</ul>
 			</div>
-		</div><!-- /content -->
+		</div> <!-- footer -->
 
 	</div><!-- /page -->
 
-	<!-- Start of first page -->
+	<!-- GAME LOBBY PAGE -->
 	<div data-role="page" id="game-lobby">
 
 		<div data-role="header">
@@ -180,6 +185,8 @@
 			<p>Game status: <!-- game status --></p><br/>	
 			<p>Players in this game: </p>	
 				<ul id="playerlist"></ul>
+		</div><!-- /content -->
+		<div data-role="footer">
 			<div data-role="navbar" data-iconpos="top" data-theme="a">
     			<ul>
     	
@@ -210,10 +217,11 @@
         			</li>
     			</ul>
 			</div>
-		</div><!-- /content -->
+		</div> <!-- footer -->
 
 	</div><!-- /page -->
 
+	<!-- ENDGAME PAGE -->
 	<div data-role="page" id="end">	
 		<div data-role="header">
 			<h1>Game Over!</h1>
