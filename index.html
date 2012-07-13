@@ -11,40 +11,72 @@
 	<script src="js/mobile.js"></script>
 </head> 
 <body>
+
+	<div data-role="page" id="game-briefing">
+		<div data-role="header">
+			<h1>Mission Briefing</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<div id="detective">
+				<p>You are a detective. Your mission is to find the spy</p>
+			</div>
+			<div id="spy">
+				<p>You are the spy. You must avoid the detectives for as long as possible</p>
+			</div>
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<div data-role="navbar" data-iconpos="top" data-theme="a">
+			    <ul>
+			        <li>
+						<a href="#game-map" data-theme="" data-icon="home">
+							Map
+			            </a>
+			        </li>
+			        <li>
+			          <a href="#games" data-theme="" data-icon="home">
+			          	Leave Game
+			            </a>
+			        </li>
+			    </ul>
+			</div>
+		</div><!-- /footer -->
+	</div><!-- page -->
 	<!-- Start of first page -->
-	<div data-role="page" id="foo">
+	<div data-role="page" id="game-map">
 
 		<div data-role="header">
-			<h1>Foo</h1>
+			<h1>Map</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<p>I'm first in the source order so I'm shown as the page.</p>		
-			<p>View internal page called <a href="#bar">bar</a></p>	
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript">
+		  google.maps.event.addDomListener(window, 'load', initialize);
+		  watchPosition();
+		</script>
 		</div><!-- /content -->
 
-		<div data-role="footer">
-			<h4>Page Footer</h4>
+	<div data-role="footer">
+			<div data-role="navbar" data-iconpos="top" data-theme="a">
+			    <ul>
+			        <li>
+						<a href="#game-map" data-theme="" data-icon="home">
+							Map
+			            </a>
+			        </li>
+			        <li>
+			          <a href="#games" data-theme="" data-icon="home">
+			          	Leave Game
+			            </a>
+			        </li>
+			    </ul>
+			</div>
 		</div><!-- /footer -->
 	</div><!-- /page -->
 
-
-	<!-- Start of second page -->
-	<div data-role="page" id="bar">
-
-		<div data-role="header">
-			<h1>Bar</h1>
-		</div><!-- /header -->
-
-		<div data-role="content">	
-			<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>		
-			<p><a href="#foo">Back to foo</a></p>	
-		</div><!-- /content -->
-
-		<div data-role="footer">
-			<h4>Page Footer</h4>
-		</div><!-- /footer -->
-	</div><!-- /page -->
+	
 
 </body>
 </html>
