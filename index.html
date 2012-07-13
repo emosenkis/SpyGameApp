@@ -9,7 +9,10 @@
 	<script src="phonegap.js"></script>
 	<script src="dist/jquery-1.7.1.min.js"></script>
 	<script src="dist/jquery.mobile-1.1.1.min.js"></script>
-	<script src="js/mobile.js"></script>
+	<script src="js/native.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/plumbing.js"></script>
+	<script src="js/map.js"></script>
 </head> 
 <body>
 	<!-- SIGN IN PAGE -->
@@ -20,19 +23,15 @@
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<form accept-charset="UTF-8" action="/sessions" method="post">
-				<div>
-					<input name="utf8" type="hidden" value="✓">
-					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k=">
-				</div>
-
+			<form accept-charset="UTF-8" method="post" onsubmit="signin">
+			<div id="signin_error"></div>
         		<div data-role="fieldcontain">
            			<fieldset data-role="controlgroup">
                 		<label for="session_email">Email</label>
-    		  			<input id="session_email" name="session[email]" placeholder="Enter email">
+    		  			<input id="session_email" name="session[email]" placeholder="Enter email" />
            
                 		<label for="session_password">Password</label>
-      					<input id="session_password" name="session[password]" placeholder="Enter password" type="password">
+      					<input id="session_password" name="session[password]" placeholder="Enter password" type="password" />
             		</fieldset>
             	</div>
             	<div>	
@@ -119,10 +118,6 @@
 		<div data-role="content">	
 			<form action="/users" class="new_user" id="new_user" method="post">
 				
-				<!-- this part is a secrurity function, come with rails-->
-				<div><input name="utf8" type="hidden" value="✓">
-					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k="></div>
-
 				<!-- the original page has alerts here -->	
 
             	<div data-role="fieldcontain">
