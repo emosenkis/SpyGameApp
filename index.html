@@ -12,40 +12,227 @@
 	<script src="js/mobile.js"></script>
 </head> 
 <body>
-	<!-- Start of first page -->
-	<div data-role="page" id="foo">
+	<!-- SIGN IN PAGE -->
+	<div data-role="page" id="signin">
 
 		<div data-role="header">
-			<h1>Foo</h1>
+			<h1>Sign In</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<p>I'm first in the source order so I'm shown as the page.</p>		
-			<p>View internal page called <a href="#bar">bar</a></p>	
+			<form accept-charset="UTF-8" action="/sessions" method="post">
+				<div>
+					<input name="utf8" type="hidden" value="✓">
+					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k=">
+				</div>
+
+        		<div data-role="fieldcontain">
+           			<fieldset data-role="controlgroup">
+                		<label for="session_email">Email</label>
+    		  			<input id="session_email" name="session[email]" placeholder="Enter email">
+           
+                		<label for="session_password">Password</label>
+      					<input id="session_password" name="session[password]" placeholder="Enter password" type="password">
+            		</fieldset>
+            	</div>
+            	<div>	
+            		<input class="btn btn-large btn-primary ui-btn-hidden" name="commit" type="submit" value="Sign in" aria-disabled="false">
+            	</div>
+			</form>	
+			<p>New user? <a href="#signup">Sign up now!</a>
+		</div><!-- /content -->
+	</div><!-- page -->
+
+	<!-- BRIEFING PAGE -->
+	<div data-role="page" id="game-briefing">
+		<div data-role="header">
+			<h1>Mission Briefing</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<div id="detective">
+				<p>You are a detective. Your mission is to find the spy</p>
+			</div>
+			<div id="spy">
+				<p>You are the spy. You must avoid the detectives for as long as possible</p>
+			</div>
 		</div><!-- /content -->
 
 		<div data-role="footer">
-			<h4>Page Footer</h4>
+			<div data-role="navbar" data-iconpos="top" data-theme="a">
+			    <ul>
+			        <li>
+						<a href="#game-map" data-theme="" data-icon="home">
+							Map
+			            </a>
+			        </li>
+			        <li>
+			          <a href="#games" data-theme="" data-icon="home">
+			          	Leave Game
+			            </a>
+			        </li>
+			    </ul>
+			</div>
 		</div><!-- /footer -->
-	</div><!-- /page -->
+	</div><!-- page -->
 
-
-	<!-- Start of second page -->
-	<div data-role="page" id="bar">
+	<!-- MAP PAGE -->
+	<div data-role="page" id="game-map">
 
 		<div data-role="header">
-			<h1>Bar</h1>
+			<h1>Map</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>		
-			<p><a href="#foo">Back to foo</a></p>	
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript">
+		  google.maps.event.addDomListener(window, 'load', initialize);
+		  watchPosition();
+		</script>
 		</div><!-- /content -->
 
-		<div data-role="footer">
-			<h4>Page Footer</h4>
+	<div data-role="footer">
+			<div data-role="navbar" data-iconpos="top" data-theme="a">
+			    <ul>
+			        <li>
+						<a href="#game-map" data-theme="" data-icon="home">
+							Map
+			            </a>
+			        </li>
+			        <li>
+			          <a href="#games" data-theme="" data-icon="home">
+			          	Leave Game
+			            </a>
+			        </li>
+			    </ul>
+			</div>
 		</div><!-- /footer -->
 	</div><!-- /page -->
 
+	<!-- SIGN UP PAGE -->
+	<div data-role="page" id="signup">
+
+		<div data-role="header">
+			<h1>Welcome!</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+			<form action="/users" class="new_user" id="new_user" method="post">
+				
+				<!-- this part is a secrurity function, come with rails-->
+				<div><input name="utf8" type="hidden" value="✓">
+					<input name="authenticity_token" type="hidden" value="S0agW9hLMkUXyHT7Yd4uHIZqTwH/VFeC2y7mDi/i43k="></div>
+
+				<!-- the original page has alerts here -->	
+
+            	<div data-role="fieldcontain">
+                  <fieldset data-role="controlgroup">
+                        <label for="user_name">Name</label>
+                        <input id="user_name" name="user[name]" placeholder="Enter name">
+                  
+                        <label for="user_email">Email</label>
+                        <input id="user_email" name="user[email]" placeholder="Enter email">
+                  
+                        <label for="user_password">Password</label>
+                        <input id="user_password" name="user[password]" placeholder="Enter password" type="password">
+                  
+                        <label for="user_password_confirmation">Confirm password</label>
+                        <input id="user_password_confirmation" name="user[password_confirmation]" placeholder="Re-enter password" type="password">
+                  </fieldset>
+              	</div>
+            		<input name="commit" type="submit" value="Become a Member"></div>     
+			</form>
+		</div><!-- /content -->
+
+	
+
+	<!-- GAMES LIST PAGE -->
+	<div data-role="page" id="games">
+
+		<div data-role="header">
+			<h1>View Games</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+			<ul id="games-list"></ul>	
+		</div><!-- /content -->
+		<div data-role="footer">
+			<div data-role="navbar" data-iconpos="top">
+    			<ul>
+        			<li>
+            			<a href="#" data-icon="home">
+                			New Game
+            			</a>
+        			</li>
+        			<li>
+            			<a href="#" data-icon="back">
+                			Log Out
+            			</a>
+        			</li>
+    			</ul>
+			</div>
+		</div> <!-- footer -->
+
+	</div><!-- /page -->
+
+	<!-- GAME LOBBY PAGE -->
+	<div data-role="page" id="game-lobby">
+
+		<div data-role="header">
+			<h1>Game Lobby</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+			<p>Game status: <!-- game status --></p><br/>	
+			<p>Players in this game: </p>	
+				<ul id="playerlist"></ul>
+		</div><!-- /content -->
+		<div data-role="footer">
+			<div data-role="navbar" data-iconpos="top" data-theme="a">
+    			<ul>
+    	
+        			<li>
+            			<a href="#" data-icon="home">
+                			Start Game
+            			</a>
+        			</li>
+        			<li>
+            			<a href="#" data-icon="back">
+                			Leave Game
+            			</a>
+        			</li>
+        			<li>	
+            			<a href="#" data-icon="star">
+                			Join Game
+            			</a>
+        			</li>
+        			<li>
+            			<a href="#games" data-icon="grid">
+                			Games
+            			</a>
+        			</li>
+        			<li>
+            			<a href="#end" data-rel="dialog" data-icon="grid">
+                			End Game
+            			</a>
+        			</li>
+    			</ul>
+			</div>
+		</div> <!-- footer -->
+
+	</div><!-- /page -->
+
+	<!-- ENDGAME PAGE -->
+	<div data-role="page" id="end">	
+		<div data-role="header">
+			<h1>Game Over!</h1>
+		</div><!-- /header -->
+		<div data-role="content">
+			<p>you successfully escaped from the detectives!</p>		
+			<p>you are caught and will be locked up forever!</p>	
+			<p>You just caught the infamous spy! Prepare to get promoted!</p>
+			<p>You let the spy slip away! You loser!</p>
+		</div><!-- /content -->
+	</div>
 </body>
 </html>
