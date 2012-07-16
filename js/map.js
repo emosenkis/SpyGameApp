@@ -100,6 +100,6 @@ function handle_update(data, textStatus, jXHR) {
 
 $(document).bind("mobileinit", function(){
 	// Disable jQuery Mobile link handling - we do this separately
-	$.mobile.ajaxEnabled = false;
-	setInterval(pushPosition, 10000);
+//	$.mobile.ajaxEnabled = false;
+//	setInterval(pushPosition, 10000);
 });

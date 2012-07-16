@@ -1,6 +1,8 @@
 // Run page's dataloader if it exists, if not just load the page
 function page(id, data) {
+	//alert('Page('+id+')');
 	if (document.sg.dataloader[id]) {
+		//alert('Dataload '+id);
 		document.sg.dataloader[id].call(id, data);
 	} else {
 		$.mobile.changePage('#'+id);
@@ -22,12 +24,13 @@ function loadData(url, data, id) {
 					page(data.goto);
 				}
 			} else {
+				//alert('Loading '+id);
 				document.sg.data[id]=data;
 				$.mobile.changePage('#'+id);
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
-			//alert('Error loading data from '+url);
+			alert('Error loading data from '+url);
 		}
 	});
 }
