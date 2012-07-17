@@ -2,8 +2,9 @@ var map;
 var markerList = {};
 
 function initialize() {
+	console.log('Initializing map');
 	var myOptions = {
-		zoom: 16,
+		zoom: 14,
 		center: new google.maps.LatLng(42.367201, - 71.258851),
 		disableDefaultUI: true,
 		scaleControl: false,
@@ -74,26 +75,38 @@ function addMarker(lat, long, id, name, is_spy) {
 document.last_loc={};
 // Handle location data
 function geolocationSuccess(position) {
-	if (position.accuracy < 100) {
-		document.last_loc=position;
-		map.panTo(new google.maps.LatLng(position.latitude, position.longitude));
+	coords={
+		latitude: position.coords.latitude,
+		longitude: position.coords.longitude,
+		accuracy: position.coords.accuracy
 	}
+	console.log('Got position');
+	console.log(coords);
+//	if (coords.accuracy < 100) {
+		document.last_loc=coords;
+		map.panTo(new google.maps.LatLng(coords.latitude, coords.longitude));
+//	}
 }
 
-function pushPosition() {
-	$.post('https://spy-game.herokuapp.com/games/'+document.game_id+'/update_position', document.last_loc, handle_update, 'json');
+function pushPosition(id) {
+	console.log('Pushing position');
+	$.get(document.sg.server+'/games/'+id+'/update_position', document.last_loc, handle_update, 'jsonp');
 }
 
 // Handle an error while trying to get location
 function geolocationFailure(error) {
+	console.log(error);
 	alert(error);
 }
 
 // Handle game state data (after posting to /update_position in commands.geolocationSuccess)
 function handle_update(data, textStatus, jXHR) {
 	if (data.goto) {
-		page(data.goto)
+		console.log('Sent to '+data.goto);
+		page(data.goto);
 	} else {
+		console.log('Updating positions');
+		console.log(data);
 		update_positions(data);
 	}
 }
@@ -101,5 +114,4 @@ function handle_update(data, textStatus, jXHR) {
 $(document).bind("mobileinit", function(){
 	// Disable jQuery Mobile link handling - we do this separately
 //	$.mobile.ajaxEnabled = false;
-//	setInterval(pushPosition, 10000);
 });
