@@ -21,7 +21,7 @@
 				<h1>Sign In</h1>
 			</div><!-- /header -->
 			<div data-role="content">
-				<form accept-charset="UTF-8" method="post" onsubmit="signin">
+				<form accept-charset="UTF-8" method="post" onsubmit="return false">
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup">
 							<label for="session_email">Email</label>
@@ -38,29 +38,29 @@
 			</div><!-- /content -->
 		</div><!-- page -->
 		<!-- BRIEFING PAGE -->
-		<div data-role="page" id="game-briefing">
+		<div data-role="page" id="briefing">
 			<div data-role="header">
 				<h1>Mission Briefing</h1>
 			</div><!-- /header -->
 			<div data-role="content">
-				<div id="detective">
+				<div class="briefing detective">
 					<p>You are a detective. Your mission is to find the spy</p>
 				</div>
-				<div id="spy">
+				<div class="briefing spy">
 					<p>You are the spy. You must avoid the detectives for as long as possible</p>
 				</div>
 			</div><!-- /content -->
 			<div data-role="footer">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
-						<li><a href="#game-map" data-theme="" data-icon="home">Map</a></li>
-						<li><a href="#games" data-theme="" data-icon="home">Leave Game</a></li>
+						<li><a href="#gameMap" data-game-id="" data-theme="" data-icon="home">Map</a></li>
+						<li><a href="#leave" data-game-id="" data-theme="" data-icon="back">Leave Game</a></li>
 					</ul>
 				</div>
 			</div><!-- /footer -->
 		</div><!-- page -->
 		<!-- MAP PAGE -->
-		<div data-role="page" id="game-map">
+		<div data-role="page" id="gameMap">
 			<div data-role="header">
 				<h1>Map</h1>
 			</div><!-- /header -->
@@ -68,14 +68,13 @@
 				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 				<script type="text/javascript">
 					google.maps.event.addDomListener(window, 'load', initialize);
-					watchPosition();
 				</script>
+				<div id="map_canvas"></div>
 			</div><!-- /content -->
 			<div data-role="footer">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
-						<li><a href="#game-map" data-theme="" data-icon="home">Map</a></li>
-						<li><a href="#games" data-theme="" data-icon="home">Leave Game</a></li>
+						<li><a href="#leave" data-game-id="" data-theme="" data-icon="home">Leave Game</a></li>
 					</ul>
 				</div>
 			</div><!-- /footer -->
@@ -86,7 +85,7 @@
 				<h1>Welcome!</h1>
 			</div><!-- /header -->
 			<div data-role="content">
-				<form action="/users" class="new_user" id="new_user" method="post">
+				<form class="new_user" id="new_user" method="post" onsubmit="return false">
 					<!-- the original page has alerts here -->
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup">
@@ -116,8 +115,8 @@
 			<div data-role="footer">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
-						<li><a href="#" data-icon="home">New Game</a></li>
-						<li><a href="#" data-icon="back">Log Out</a></li>
+						<li><a href="#newgame" data-icon="home">New Game</a></li>
+						<li><a href="#signout" data-icon="back">Log Out</a></li>
 					</ul>
 				</div>
 			</div> <!-- footer -->
@@ -135,11 +134,10 @@
 			<div data-role="footer">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
-						<li><a href="#" data-icon="home">Start Game</a></li>
-						<li><a href="#" data-icon="back" class="leave_game">Leave Game</a>
-						<a href="#" data-icon="star" class="join_game">Join Game</a></li>
+						<li><a href="#start" data-game-id="" data-icon="home">Start Game</a></li>
+						<li><a href="#leave" data-game-id="" data-icon="back" class="leave_game">Leave Game</a>
+						<a href="#join" data-game-id="" data-icon="star" class="join_game">Join Game</a></li>
 						<li><a href="#games" data-icon="grid">Games</a></li>
-						<li><a href="#end" data-rel="dialog" data-icon="grid">End Game</a></li>
 					</ul>
 				</div>
 			</div> <!-- footer -->
@@ -150,10 +148,10 @@
 				<h1>Game Over!</h1>
 			</div><!-- /header -->
 			<div data-role="content">
-				<p>you successfully escaped from the detectives!</p>
-				<p>you are caught and will be locked up forever!</p>
-				<p>You just caught the infamous spy! Prepare to get promoted!</p>
-				<p>You let the spy slip away! You loser!</p>
+				<p data-outcome="spy-escape">You successfully escaped from the detectives!</p>
+				<p data-outcome="spy-caught">You are caught and will be locked up forever!</p>
+				<p data-outcome="detective-caught">You just caught the infamous spy! Prepare to get promoted!</p>
+				<p data-outcome="detective-escape">You let the spy slip away! You loser!</p>
 			</div><!-- /content -->
 		</div>
 	</body>
