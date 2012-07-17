@@ -37,18 +37,22 @@ document.sg.pageinit.signin=function(data) {
 }
 
 document.sg.pageinit.games=function(data) {
-	$('#games-list').html('');
+	alert('im here');
+	$('#games_list').html('');
 	for (var i=0; i<data.length; i++) {
 		game=data[i];
-		tag='<li><a href="#gameLobby" data-game-id="'+game.id+'">Game '+game.id+'</a>';
+		tag='<div data-role="collapsible"><h3>Game '+game.id+'</h3><p><ul>';
 		for (var j=0; j<game.players.length; j++) {
+			tag+= '<li>'
 			player=game.players[j];
-			tag+=' '+player+',';
+			tag+=' '+player+'</li>';
 		}
-		tag+=' status: '+game.state;
-		tag+='</li>';
-		$('#games-list').append(tag);
+		tag+='</ul> status: '+game.state;
+		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">More Info</a></div>';
+		tag+='</p>';
+		$(tag).appendTo('#games_list');
 	}
+	$('#games_list').trigger("create");
 }
 
 function signin() {
