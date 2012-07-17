@@ -49,7 +49,7 @@ document.sg.pageinit.games=function(data) {
 }
 
 document.sg.dataloader.signin=function() {
-	loadData('is-signed-in', {}, this);
+	loadData('is-signed-in', {}, 'signin');
 }
 
 document.sg.pageinit.signin=function(data) {
