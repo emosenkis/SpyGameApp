@@ -1,12 +1,23 @@
 // Run page's dataloader if it exists, if not just load the page
 function page(id, data) {
-	//alert('Page('+id+')');
+	console.log('Page('+id+')');
 	if (document.sg.dataloader[id]) {
-		//alert('Dataload '+id);
+		$.mobile.showPageLoadingMsg();
+		console.log('Dataload '+id);
 		document.sg.dataloader[id].call(id, data);
 	} else {
-		$.mobile.changePage('#'+id);
+		changePage(id);
 	}
+}
+
+function changePage(id) {
+	console.log($.mobile.activePage[0].id +' -> '+id);
+	if ($.mobile.activePage[0].id == id && document.sg.pageinit[id]) {
+		console.log('Forcing pageinit '+id);
+		$('#'+id).trigger('pagebeforeshow');
+	}
+	$.mobile.hidePageLoadingMsg();
+	$.mobile.changePage('#'+id);
 }
 
 // Load data from server/url with data as params, if successful load page by id
@@ -17,20 +28,18 @@ function loadData(url, data, id) {
 		data: data,
 		success: function(data, textStatus, jqXHR) {
 			if (data.goto) {
-				//alert('Goto '+data.goto);
-				if (data.gotodata) {
-					page(data.goto, data.gotodata);
-				} else {
-					page(data.goto);
-				}
+				console.log('Goto '+data.goto);
+				page(data.goto, data);
 			} else {
-				//alert('Loading '+id);
+				console.log('Loading '+id);
 				document.sg.data[id]=data;
-				$.mobile.changePage('#'+id);
+				changePage(id);
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
-			alert('Error loading data from '+url);
+			$.mobile.hidePageLoadingMsg();
+			console.log('Error loading data from '+url);
+			alert('Error loading data');
 		}
 	});
 }
@@ -50,8 +59,10 @@ $('a').live('click', function(event) {
 $(function() {
 	$(document).delegate('[data-role=page]', 'pagebeforeshow', function(event) {
 		var page=this.id;
+		console.log('Init '+page);
 		if (document.sg.pageinit[page]) {
 			document.sg.pageinit[page].call(this, document.sg.data[page]);
+			$(this).trigger('updatelayout');
 		}
 	});
 });
