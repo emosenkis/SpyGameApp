@@ -27,6 +27,10 @@ function loadData(url, data, id) {
 		dataType: 'jsonp',
 		data: data,
 		success: function(data, textStatus, jqXHR) {
+			if (data.alert) {
+				console.log('Got alert: '+data.alert);
+				alert(data.alert);
+			}
 			if (data.goto) {
 				console.log('Goto '+data.goto);
 				page(data.goto, data);

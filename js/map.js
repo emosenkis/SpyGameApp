@@ -4,7 +4,7 @@ var markerList = {};
 function initialize() {
 	console.log('Initializing map');
 	var myOptions = {
-		zoom: 14,
+		zoom: 16,
 		center: new google.maps.LatLng(42.367201, - 71.258851),
 		disableDefaultUI: true,
 		scaleControl: false,
@@ -82,10 +82,10 @@ function geolocationSuccess(position) {
 	}
 	console.log('Got position');
 	console.log(coords);
-//	if (coords.accuracy < 100) {
+	if (coords.accuracy < 100) {
 		document.last_loc=coords;
 		map.panTo(new google.maps.LatLng(coords.latitude, coords.longitude));
-//	}
+	}
 }
 
 function pushPosition(id) {
@@ -96,7 +96,7 @@ function pushPosition(id) {
 // Handle an error while trying to get location
 function geolocationFailure(error) {
 	console.log(error);
-	alert(error);
+	alert('Unable to track your position');
 }
 
 // Handle game state data (after posting to /update_position in commands.geolocationSuccess)
