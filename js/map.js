@@ -103,7 +103,7 @@ function geolocationFailure(error) {
 function handle_update(data, textStatus, jXHR) {
 	if (data.goto) {
 		console.log('Sent to '+data.goto);
-		page(data.goto);
+		page(data.goto, data);
 	} else {
 		console.log('Updating positions');
 		console.log(data);

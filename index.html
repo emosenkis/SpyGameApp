@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
 		<link rel="stylesheet" href="dist/jquery.mobile.theme-1.1.1.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
 		<script src="phonegap.js"></script>
 		<script src="dist/jquery-1.7.1.min.js"></script>
 		<script src="dist/jquery.mobile-1.1.1.min.js"></script>
@@ -15,7 +16,7 @@
 		<script src="js/pages.js"></script>
 		<script src="js/plumbing.js"></script>
 		<script src="js/map.js"></script>
-		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
+		<script src="js/countdown.js"></script>
 	</head>
 	<body>
 		<!-- SIGN IN PAGE -->
@@ -76,6 +77,7 @@
 				<script type="text/javascript">
 					google.maps.event.addDomListener(window, 'load', initialize);
 				</script>
+				<div id="timer"></div>
 				<div id="map_canvas"></div>
 			</div><!-- /content -->
 			<div data-role="footer">
@@ -149,7 +151,7 @@
 			</div> <!-- footer -->
 		</div><!-- /page -->
 		<!-- ENDGAME PAGE -->
-		<div data-role="page" id="end">
+		<div data-role="page" id="debriefing">
 			<div data-role="header">
 				<h1>Game Over!</h1>
 			</div><!-- /header -->
@@ -158,6 +160,7 @@
 				<p data-outcome="spy-caught">You are caught and will be locked up forever!</p>
 				<p data-outcome="detective-caught">You just caught the infamous spy! Prepare to get promoted!</p>
 				<p data-outcome="detective-escape">You let the spy slip away! You loser!</p>
+				<a data-role="button" data-icon="grid" href="#games">Games</a>
 			</div><!-- /content -->
 		</div>
 	</body>
