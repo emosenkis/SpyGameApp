@@ -34,7 +34,6 @@ document.sg.dataloader.games=function() {
 }
 
 document.sg.pageinit.games=function(data) {
-	alert('im here');
 	$('#games_list').html('');
 	for (var i=0; i<data.length; i++) {
 		game=data[i];
@@ -45,7 +44,7 @@ document.sg.pageinit.games=function(data) {
 			tag+=' '+player+'</li>';
 		}
 		tag+='</ul> status: '+game.state;
-		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">More Info</a></div>';
+		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">Start or Join Game</a></div>';
 		tag+='</p>';
 		$(tag).appendTo('#games_list');
 	}
