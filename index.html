@@ -2,11 +2,13 @@
 <html>
 	<head>
 		<title>SpyGame</title>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
 		<link rel="stylesheet" href="dist/jquery.mobile.theme-1.1.1.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
 		<script src="phonegap.js"></script>
 		<script src="dist/jquery-1.7.1.min.js"></script>
 		<script src="dist/jquery.mobile-1.1.1.min.js"></script>
@@ -19,24 +21,27 @@
 	<body>
 		<!-- SIGN IN PAGE -->
 		<div data-role="page" id="signin">
-			<div data-role="header">
-				<h1>Sign In</h1>
-			</div><!-- /header -->
+			
 			<div data-role="content">
+				<img id="logo" src="images/spygame-logo.png" alt="spygame" class="center" width="90%">
 				<form accept-charset="UTF-8" method="post" onsubmit="return false">
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup">
+					<ul data-role="listview" class="ui-hide-label" data-inset="true">
+						<li>
+							<img id="label" src="images/icons/18-envelope.png" alt="Email" class="ui-li-icon">
 							<label for="session_email">Email</label>
 							<input id="session_email" name="session[email]" placeholder="Enter email" />
+						</li>
+						<li>
+							<img src="images/icons/54-lock.png" alt="Password" class="ui-li-icon">
 							<label for="session_password">Password</label>
 							<input id="session_password" name="session[password]" placeholder="Enter password" type="password" />
-						</fieldset>
-					</div>
+						</li>
+					</ul>
 					<div>
 						<input class="btn btn-large btn-primary ui-btn-hidden" name="commit" type="submit" value="Sign in" aria-disabled="false" />
 					</div>
 				</form>
-				<p>New user? <a href="#signup">Sign up now!</a></p>
+				<p>New user? <a href="#signup" data-rel="dialog" data-transition="slidedown">Sign up now!</a></p>
 			</div><!-- /content -->
 		</div><!-- page -->
 		<!-- BRIEFING PAGE -->
@@ -83,15 +88,16 @@
 			</div><!-- /footer -->
 		</div><!-- /page -->
 		<!-- SIGN UP PAGE -->
-		<div data-role="page" id="signup">
+
+		<div data-role="dialog" id="signup">
 			<div data-role="header">
 				<h1>Welcome!</h1>
 			</div><!-- /header -->
 			<div data-role="content">
 				<form class="new_user" id="new_user" method="post" onsubmit="return false">
 					<!-- the original page has alerts here -->
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup">
+					<div data-role="fieldcontain ui-br">
+						
 							<label for="user_name">Name</label>
 							<input id="user_name" name="user[name]" placeholder="Enter name" />
 							<label for="user_email">Email</label>
@@ -100,8 +106,8 @@
 							<input id="user_password" name="user[password]" placeholder="Enter password" type="password" />
 							<label for="user_password_confirmation">Confirm password</label>
 							<input id="user_password_confirmation" name="user[password_confirmation]" placeholder="Re-enter password" type="password" />
-							<input name="commit" type="submit" value="Become a Member" />
-						</fieldset>
+						</div>
+						<input name="commit" type="submit" value="Become a Member" />
 					</div>
 				</form>
 			</div><!-- /content -->
