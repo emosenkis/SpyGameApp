@@ -22,7 +22,7 @@ a {
 
 }
 
-img.center {
+.center {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -31,4 +31,9 @@ img.center {
 .ui-btn {
 	max-width: 500px;
 	margin: 0 auto;
+}
+
+#name-list {
+	max-width: 300px;
+	text-align: center;
 }
