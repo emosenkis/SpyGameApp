@@ -38,7 +38,7 @@ document.sg.pageinit.games=function(data) {
 	$('#games_list').html('');
 	for (var i=0; i<data.length; i++) {
 		game=data[i];
-		tag='<div data-role="collapsible"><h3>Game '+game.id+' - '+game.state+'</h3><ul id="name-list" data-role="listview" data-type="horizontal" data-inset="true" >';
+		tag='<div data-role="collapsible"><h3>Game '+game.id+' - '+game.state+'<span class="ui-li-count ui-li-aside">'+game.players.length+'</span></h3><ul id="name-list" data-role="listview" data-type="horizontal" data-inset="true" >';
 		for (var j=0; j<game.players.length; j++) {
 			tag+= '<li>'
 			player=game.players[j];
