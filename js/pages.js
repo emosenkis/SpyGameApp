@@ -44,7 +44,6 @@ document.sg.pageinit.games=function(data) {
 			player=game.players[j];
 			tag+=' '+player+'</li>';
 		}
-
 		tag+='</ul><br>';
 		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">Enter Game</a></div>';
 		$(tag).appendTo('#games_list');
