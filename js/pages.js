@@ -44,15 +44,10 @@ document.sg.pageinit.games=function(data) {
 			player=game.players[j];
 			tag+=' '+player+'</li>';
 		}
-<<<<<<< HEAD
-		tag+='</ul> status: '+game.state;
-		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">Start or Join Game</a></div>';
-		tag+='</p>';
-=======
+
 		tag+='</ul><br>';
 		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">Enter Game</a></div>';
 
->>>>>>> e40c8d091c08bcbaf826ba39c01c00a373c9bf03
 		$(tag).appendTo('#games_list');
 	}
 	$('#games_list').trigger("create");
