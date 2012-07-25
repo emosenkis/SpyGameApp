@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
-		<link rel="stylesheet" href="themes/spy-game-theme.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="themes/spy-game-theme.min.css" />
 		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
 		<script src="phonegap.js"></script>
 		<script src="dist/jquery-1.7.1.min.js"></script>
@@ -17,6 +17,7 @@
 		<script src="js/plumbing.js"></script>
 		<script src="js/map.js"></script>
 		<script src="js/countdown.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
 		<!-- SIGN IN PAGE -->
@@ -58,7 +59,7 @@
 					<p>You are the spy. You must avoid the detectives for as long as possible</p>
 				</div>
 			</div><!-- /content -->
-			<div data-role="footer">
+			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
 						<li><a href="#gameMap" data-game-id="" data-theme="" data-icon="home">Map</a></li>
@@ -80,7 +81,7 @@
 				<div id="timer"></div>
 				<div id="map_canvas"></div>
 			</div><!-- /content -->
-			<div data-role="footer">
+			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
 						<li><a href="#leave" data-game-id="" data-theme="" data-icon="home">Leave Game</a></li>
@@ -119,7 +120,8 @@
 			</div><!-- /header -->
 			<div data-role="collapsible-set" data-theme="a" id='games_list'>
 			</div><!-- /content -->
-			<div data-role="footer">
+
+			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
 						<li><a href="#newgame" data-icon="home">New Game</a></li>
@@ -138,7 +140,7 @@
 				<p>Players in this game: </p>
 				<ul id="playerlist"></ul>
 			</div><!-- /content -->
-			<div data-role="footer">
+			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar" data-iconpos="top" data-theme="a">
 					<ul>
 						<li><a href="#start" data-game-id="" data-icon="home">Start Game</a></li>
