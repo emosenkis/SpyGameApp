@@ -11,10 +11,7 @@ document.sg.pageinit.gameLobby=function(data) {
 	$(this).find('#game_status').html(data.state);
 	pl='';
 	for (var i=0; i<data.players.length; i++) {
-		pl+='<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
-				<h3 class="ui-li-heading">'+data.players[i]+'</h3>
-				<p class="ui-li-desc">'+data.players[i]+'</p>
-			</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>';
+		pl+='<li data-corners="false" data-iconshadow="true" data-icon="arrow-r" data-iconpos="right" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li-has-thumb"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><h3 class="ui-li-heading">'+data.players[i]+'</h3><p class="ui-li-desc">'+data.players[i]+'</p></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>';
 	}
 	$(this).find('#playerlist').html(pl);
 	if (data.in_game) {
