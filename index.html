@@ -5,9 +5,9 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8" />
-		
-		<link rel="stylesheet" href="dist/jquery.mobile.theme-1.1.1.min.css" />
-		
+		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="themes/spy-game-theme.min.css" />
 		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
 		<script src="phonegap.js"></script>
 		<script src="dist/jquery-1.7.1.min.js"></script>
@@ -17,12 +17,11 @@
 		<script src="js/plumbing.js"></script>
 		<script src="js/map.js"></script>
 		<script src="js/countdown.js"></script>
-		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
 		<!-- SIGN IN PAGE -->
-		<div data-role="page" id="signin">
+		<div data-role="page" id="signin" data-theme="a">
 			
 			<div data-role="content">
 				<img id="logo" src="images/spygame-logo.png" alt="spygame" class="center" width="90%">
@@ -47,14 +46,15 @@
 			</div><!-- /content -->
 		</div><!-- page -->
 		<!-- BRIEFING PAGE -->
-		<div data-role="page" id="briefing">
+		<div data-role="page" id="briefing" data-theme="a">
 			<div data-role="header">
 				<h1>Mission Briefing</h1>
 			</div><!-- /header -->
 			<div data-role="content">
 				<div class="briefing detective">
 					<p>You are a detective. Your mission is to find the spy</p>
-				</div>
+				</div>\
+
 				<div class="briefing spy">
 					<p>You are the spy. You must avoid the detectives for as long as possible</p>
 				</div>
@@ -69,7 +69,7 @@
 			</div><!-- /footer -->
 		</div><!-- page -->
 		<!-- MAP PAGE -->
-		<div data-role="page" id="gameMap">
+		<div data-role="page" id="gameMap" data-theme="a">
 			<div data-role="header">
 				<h1>Map</h1>
 			</div><!-- /header -->
@@ -90,8 +90,7 @@
 			</div><!-- /footer -->
 		</div><!-- /page -->
 		<!-- SIGN UP PAGE -->
-
-		<div data-role="dialog" id="signup">
+		<div data-role="dialog" id="signup" data-theme="a">
 			<div data-role="header">
 				<h1>Welcome!</h1>
 			</div><!-- /header -->
@@ -115,12 +114,11 @@
 			</div><!-- /content -->
 		</div>
 		<!-- GAMES LIST PAGE -->
-		<div data-role="page" id="games">
+		<div data-role="page" id="games" data-theme="a">
 			<div data-role="header">
 				<h1>View Games</h1>
 			</div><!-- /header -->
-
-			<div data-role="collapsible-set" id='games_list'>
+			<div data-role="collapsible-set" data-theme="a" id='games_list'>
 			</div><!-- /content -->
 
 			<div data-role="footer" data-position="fixed">
@@ -133,7 +131,7 @@
 			</div> <!-- footer -->
 		</div><!-- /page -->
 		<!-- GAME LOBBY PAGE -->
-		<div data-role="page" id="gameLobby">
+		<div data-role="page" id="gameLobby" data-theme="a">
 			<div data-role="header">
 				<h1>Game Lobby</h1>
 			</div><!-- /header -->
@@ -154,7 +152,7 @@
 			</div> <!-- footer -->
 		</div><!-- /page -->
 		<!-- ENDGAME PAGE -->
-		<div data-role="page" id="debriefing">
+		<div data-role="page" id="debriefing" data-theme="a">
 			<div data-role="header">
 				<h1>Game Over!</h1>
 			</div><!-- /header -->
