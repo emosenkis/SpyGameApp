@@ -113,18 +113,23 @@ document.sg.dataloader.gameMap=function(data) {
 }
 
 document.sg.pageinit.gameMap=function(data) {
+	for (id in markerList) {
+		markerList[id].setMap(null);
+	}
+	markerList = {};
 	$(this).find('[data-game-id]').data('gameId', data.id);
-	$(this).find('#map_canvas').css({width: $(this).width()-50, height: $(this).height()-30});
 	$(this).find('#timer').countdown({
 		startTime: data.countdown,
 		doneCountdown: function() {pushPosition(data.id);},
 	});
+	$(window).resize();
 	stopStalking();
 	document.sg.interval=setInterval(function() {
 		pushPosition(data.id);
 	}, 10000);
 	watchPosition();
-	setTimeout(function() {google.maps.event.trigger(map, 'resize');}, 300);
+	setTimeout(function() {$(window).resize()}, 300);
+	handle_update(data);
 }
 
 document.sg.dataloader.debriefing=function(data) {
@@ -149,4 +154,9 @@ $(function() {
 	$('#signin form').submit(signin);
 	$('#signup form').submit(signup);
 	document.sg.dataloader.signin();
+	$(window).resize(function() {
+		$('#map_canvas').css({width: $(this).width()-50, height: $(this).height()-150});
+		google.maps.event.trigger(map, 'resize');
+		zoomToFit();
+	});
 });
