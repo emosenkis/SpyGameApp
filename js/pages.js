@@ -11,7 +11,7 @@ document.sg.pageinit.gameLobby=function(data) {
 	$(this).find('#game_status').html(data.state);
 	pl='';
 	for (var i=0; i<data.players.length; i++) {
-		pl+='<li>'+data.players[i]+'</li>';
+		pl+='<li data-corners="false" data-iconshadow="true" data-icon="arrow-r" data-iconpos="right" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li-has-thumb"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><h3 class="ui-li-heading">'+data.players[i]+'</h3><p class="ui-li-desc">'+data.players[i]+'</p></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>';
 	}
 	$(this).find('#playerlist').html(pl);
 	if (data.in_game) {
@@ -38,7 +38,7 @@ document.sg.pageinit.games=function(data) {
 	$('#games_list').html('');
 	for (var i=0; i<data.length; i++) {
 		game=data[i];
-		tag='<div data-role="collapsible"><h3>Game '+game.id+' - '+game.state+'</h3><ul id="name-list" data-role="listview" data-type="horizontal" data-inset="true" >';
+		tag='<div data-role="collapsible"><h3>Game '+game.id+' - '+game.state+'<span class="ui-li-count ui-li-aside">'+game.players.length+'</span></h3><ul id="name-list" data-role="listview" data-type="horizontal" data-inset="true" >';
 		for (var j=0; j<game.players.length; j++) {
 			tag+= '<li>'
 			player=game.players[j];

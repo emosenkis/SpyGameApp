@@ -29,14 +29,18 @@ a {
 }
 
 .ui-btn {
-	max-width: 500px;
 	margin: 0 auto;
-<<<<<<< HEAD
-=======
 }
+
+
+.ui-li-count {
+	font-size: 12pt;
+	font-weight: 200;
+}
+
 
 #name-list {
 	max-width: 300px;
 	text-align: center;
->>>>>>> e40c8d091c08bcbaf826ba39c01c00a373c9bf03
+
 }
