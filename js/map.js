@@ -4,6 +4,50 @@ var infoWindow = null;
 
 function initialize() {
 	console.log('Initializing map');
+	
+	var styles = [
+  		{
+    		featureType: "landscape.man_made",
+    		elementType: "geometry.fill",
+    		stylers: [
+	      		{ color: "#a6eaf2" },
+    	  		{ lightness: 16 },
+      			{ saturation: -32 }
+    		]
+  		},{
+	    	featureType: "landscape.natural",
+    		elementType: "geometry.fill",
+    		stylers: [
+      			{ color: "#04808c" },
+      			{ saturation: -22 },
+      			{ lightness: 12 }
+    		]
+  		},{
+	    	featureType: "poi.school",
+    		elementType: "geometry.fill",
+    		stylers: [
+      			{ color: "#095a8a" }
+	    	]
+	  	},{
+    		featureType: "road.local",
+    		elementType: "geometry.stroke",
+    		stylers: [
+      			{ weight: 0.1 }
+    		]
+  		},{
+    		featureType: "water",
+    		elementType: "geometry.fill",
+    		stylers: [
+      			{ saturation: 61 },
+      			{ lightness: -26 }
+    		]
+  		}
+	];
+
+  	// Create a new StyledMapType object, passing it the array of styles,
+  	// as well as the name to be displayed on the map type control.
+  	var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+
 	var myOptions = {
 		zoom: 16,
 		center: new google.maps.LatLng(42.367201, - 71.258851),
@@ -19,6 +63,10 @@ function initialize() {
 		maxZoom: 19
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+	//Associate the styled map with the MapTypeId and set it to display.
+ 	map.mapTypes.set('map_style', styledMap);
+  	map.setMapTypeId('map_style');
 }
 
 function update_positions(data) {
