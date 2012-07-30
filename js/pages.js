@@ -27,15 +27,18 @@ document.sg.pageinit.gameLobby=function(data) {
 
 document.sg.dataloader.gameLobby=function(data) {
 	stopStalking();
-	loadData('games/'+data.gameId, data, this);
+	console.log('gameLobby loader');
+	console.log(data);
+	loadData('games/'+data.gameId, {}, this);
 }
 
 document.sg.dataloader.games=function() {
+	stopStalking();
 	loadData('games', {}, this);
 }
 
 document.sg.pageinit.games=function(data) {
-	$('#games_list').html('');
+	$(this).find('.games_list').html('');
 	for (var i=0; i<data.length; i++) {
 		game=data[i];
 		tag='<div data-role="collapsible"><h3>Game '+game.id+' - '+game.state+'<span class="ui-li-count ui-li-aside">'+game.players.length+'</span></h3><ul id="name-list" data-role="listview" data-type="horizontal" data-inset="true" >';
@@ -46,12 +49,22 @@ document.sg.pageinit.games=function(data) {
 		}
 		tag+='</ul><br>';
 		tag+='<div><a href="#gameLobby" data-game-id="'+game.id+'">Enter Game</a></div>';
-		$(tag).appendTo('#games_list');
+		$(tag).appendTo($(this).find('.games_list'));
 	}
-	$('#games_list').trigger("create");
+	$(this).find('.games_list').trigger("create");
 }
 
+document.sg.dataloader.exit=exit;
+
+document.sg.dataloader.history=function() {
+	stopStalking();
+	loadData('history', {}, this);
+}
+
+document.sg.pageinit.history=document.sg.pageinit.games;
+
 document.sg.dataloader.signin=function() {
+	stopStalking();
 	loadData('is-signed-in', {}, 'signin');
 }
 
@@ -79,6 +92,7 @@ document.sg.dataloader.signout=function(data) {
 }
 
 document.sg.dataloader.newgame=function(data) {
+	stopStalking();
 	loadData('games/new', {}, 'gameLobby');
 }
 
