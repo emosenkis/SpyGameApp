@@ -149,6 +149,18 @@ function stopStalking() {
 	clearWatch();
 }
 
+function changeTheme() {
+	var theme = $("#ddlTheme :selected").val();
+    var cssUrl = 'themes/' + theme + '/spy-game-theme.min.css';
+
+    var themeStyle = $("#theme-style");
+    themeStyle.attr({
+        rel:  "stylesheet",
+        type: "text/css",
+        href: cssUrl
+    }); 
+}
+
 $(function() {
 	// Take over signin form
 	$('#signin form').submit(signin);
@@ -158,5 +170,8 @@ $(function() {
 		$('#map_canvas').css({width: $(this).width()-50, height: $(this).height()-150});
 		google.maps.event.trigger(map, 'resize');
 		zoomToFit();
+	});
+	$('#ddlTheme').change(function() {
+		changeTheme();
 	});
 });

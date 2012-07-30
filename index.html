@@ -6,8 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="dist/jquery.mobile-1.1.1.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="themes/spy-game-theme.min.css" />
+		<link id="theme-style" rel="stylesheet" href="themes/day/spy-game-theme.min.css" />
 		<link rel="stylesheet" href="dist/jquery-mobile-960.min.css">
 		<script src="phonegap.js"></script>
 		<script src="dist/jquery-1.7.1.min.js"></script>
@@ -43,6 +42,11 @@
 					</div>
 				</form>
 				<p>New user? <a href="#signup" data-rel="dialog" data-transition="slidedown">Sign up now!</a></p>
+				<label for="flip-1">Change Theme: </label>
+				<select name="flip-1" id="ddlTheme" data-role="slider">
+					<option value="day">Day</option>
+					<option value="night">Night</option>
+				</select> 
 			</div><!-- /content -->
 		</div><!-- page -->
 		<!-- BRIEFING PAGE -->
