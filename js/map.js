@@ -103,6 +103,10 @@ function createMarker(id, name, role) {
 		icon: new google.maps.MarkerImage('images/'+role+(id == 'me' ? '-me' : '')+'.png',
 			new google.maps.Size(24, 30),
 			new google.maps.Point(0, 0),
+			new google.maps.Point(12, 30)),
+		shadow: new google.maps.MarkerImage('images/'+role+(id == 'me' ? '-me' : '')+'-shadow.png',
+			new google.maps.Size(36, 30),
+			new google.maps.Point(0, 0),
 			new google.maps.Point(12, 30))
 	});
 	markerList[id]=marker;

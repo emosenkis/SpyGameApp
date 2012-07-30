@@ -1,6 +1,11 @@
 // Functions that call PhoneGap functionality
 function exit() {
-	navigator.app.exitApp();
+	if (navigator.app) {
+		navigator.app.exitApp();
+	} else {
+		alert('Thanks for playing!');
+		window.location='http://www.google.com';
+	}
 };
 function getPosition() {
 	navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure, {enableHighAccuracy: true});
