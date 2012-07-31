@@ -64,12 +64,6 @@ document.sg.dataloader.signin=function() {
 	loadData('is-signed-in', {}, 'signin');
 }
 
-document.sg.pageinit.signin=function(data) {
-	if (data && data.error) {
-		alert(data.error);
-	}
-}
-
 document.sg.pageinit.signup=document.sg.pageinit.signin;
 
 function signin() {
