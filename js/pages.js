@@ -26,14 +26,12 @@ document.sg.pageinit.gameLobby=function(data) {
 }
 
 document.sg.dataloader.gameLobby=function(data) {
-	stopStalking();
 	console.log('gameLobby loader');
 	console.log(data);
 	loadData('games/'+data.gameId, {}, this);
 }
 
 document.sg.dataloader.games=function() {
-	stopStalking();
 	loadData('games', {}, this);
 }
 
@@ -57,14 +55,12 @@ document.sg.pageinit.games=function(data) {
 document.sg.dataloader.exit=exit;
 
 document.sg.dataloader.history=function() {
-	stopStalking();
 	loadData('history', {}, this);
 }
 
 document.sg.pageinit.history=document.sg.pageinit.games;
 
 document.sg.dataloader.signin=function() {
-	stopStalking();
 	loadData('is-signed-in', {}, 'signin');
 }
 
@@ -87,32 +83,26 @@ function signup() {
 }
 
 document.sg.dataloader.signout=function(data) {
-	stopStalking();
 	loadData('signout', {}, 'signin');
 }
 
 document.sg.dataloader.newgame=function(data) {
-	stopStalking();
 	loadData('games/new', {}, 'gameLobby');
 }
 
 document.sg.dataloader.leave=function(data) {
-	stopStalking();
 	loadData('games/'+data.gameId+'/leave', {}, this);
 }
 
 document.sg.dataloader.join=function(data) {
-	stopStalking();
 	loadData('games/'+data.gameId+'/join', {}, 'gameLobby');
 }
 
 document.sg.dataloader.start=function(data) {
-	stopStalking();
 	loadData('games/'+data.gameId+'/start', {}, 'gameLobby');
 }
 
 document.sg.dataloader.briefing=function(data) {
-	stopStalking();
 	loadData('games/'+data.gameId+'/briefing', {}, this);
 }
 
@@ -147,7 +137,6 @@ document.sg.pageinit.gameMap=function(data) {
 }
 
 document.sg.dataloader.debriefing=function(data) {
-	stopStalking();
 	loadData('games/'+data.gameId+'/debriefing', {}, 'debriefing');
 }
 

@@ -154,7 +154,7 @@ function geolocationSuccess(position) {
 	}
 	console.log('Got position');
 	console.log(coords);
-	if (coords.accuracy >= 100) {
+	if (coords.accuracy >= 20) {
 		return;
 	}
 	document.last_loc=coords;
@@ -163,6 +163,10 @@ function geolocationSuccess(position) {
 }
 
 function pushPosition(id) {
+	if ($.mobile.activePage[0].id != 'gameMap') {
+		stopStalking();
+		return;
+	}
 	console.log('Pushing position');
 	$.get(document.sg.server+'/games/'+id+'/update_position', document.last_loc, handle_update, 'jsonp');
 }
