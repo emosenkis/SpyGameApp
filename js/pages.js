@@ -181,7 +181,7 @@ $(function() {
 	$('#signup form').submit(signup);
 	document.sg.dataloader.signin();
 	$(window).resize(function() {
-		$('#map_canvas').css({width: $(this).width()-50, height: $(this).height()-150});
+		$('#map_canvas').css({width: $(this).width()-30, height: $(this).height()-90});
 		google.maps.event.trigger(map, 'resize');
 		zoomToFit();
 	});
